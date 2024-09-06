@@ -39,33 +39,35 @@ body = st.container()
 
 with title:
     st.title("Emotion Recognition and Expression in Text")
-    st.info("This app predicts emotions in text like happy, sadness, fear, anger, surprise, and neutral. It uses a machine learning model trained on a dataset of text data.")
-
+    st.code("This app predicts emotions in text like happy, sadness, fear, anger, surprise, and neutral.")
+    st.write("<br><br>", unsafe_allow_html=True)
 with body:
-    c_1, c_2 = st.columns([1, 1])
-    with c_1:
+    c_1, c_2, c_3 = st.columns([1, 4,1])
+    with c_2:
         # Input text area for emotion prediction
         text = st.text_area("Enter Text")
-        submit = st.button("Predict")
+        c1,c2 = st.columns([1,5])
+        with c1:
+            submit = st.button("Predict")
 
         if submit:
             # Predict emotion and display the respective animation
             prediction = predict_emotions(text)
             probability = get_prediction_proba(text)
-
-            st.write(f"Predicted Emotion: {prediction}")
+            with c2:
+                st.success(f"Predicted Emotion: {prediction}")
             
             # Display the animation based on the predicted emotion
-            with c_2:
-                if prediction == "happy":
+            
+            if prediction == "happy":
                     st_lottie(happy, speed=1, reverse=False, quality="low", loop=True, height=250)
-                elif prediction == "sadness":
+            elif prediction == "sadness":
                     st_lottie(sadness, speed=1, reverse=False, quality="low", loop=True, height=250)
-                elif prediction == "fear":
+            elif prediction == "fear":
                     st_lottie(fear, speed=1, reverse=False, quality="low", loop=True, height=250)
-                elif prediction == "anger":
+            elif prediction == "anger":
                     st_lottie(angry, speed=1, reverse=False, quality="low", loop=True, height=250)
-                elif prediction == "surprise":
+            elif prediction == "surprise":
                     st_lottie(surprise, speed=1, reverse=False, quality="low", loop=True, height=250)
-                elif prediction == "neutral":
+            elif prediction == "neutral":
                     st_lottie(neutral, speed=1, reverse=False, quality="low", loop=True, height=250)
