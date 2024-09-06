@@ -7,12 +7,6 @@ This project is a Streamlit application that predicts emotions in text, such as 
 - Displays corresponding Lottie animations for each predicted emotion.
 - User-friendly interface built with Streamlit.
 
-## Requirements
-- Python 3.x
-- Streamlit
-- streamlit-lottie
-- joblib
-
 ## Installation
 
 1. **Clone the repository or download the source code.**
