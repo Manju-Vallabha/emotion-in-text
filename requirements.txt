@@ -2,3 +2,4 @@ streamlit_lottie
 joblib
 numpy
 pandas
+pickle
